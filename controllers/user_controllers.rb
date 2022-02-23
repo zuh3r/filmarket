@@ -8,9 +8,8 @@ get '/sign_up' do
     last_name = params['last_name']
     email = params['email']
     password = params['password']
-    balance = params['balance']
   
-    create_user(first_name, last_name, email, password, balance)
+    create_user(first_name, last_name, email, password)
   
     redirect '/marketplace'
   end

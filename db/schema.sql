@@ -27,6 +27,7 @@ CREATE TABLE users (
     password_digest TEXT
 );
 
+heroku pg:reset
 heroku pg:push filmarket_db DATABASE_URL
 
 
