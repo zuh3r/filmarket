@@ -1,8 +1,13 @@
 <h1>FilMarket</h1>
 <a href="/marketplace">MARKETPLACE</a>
 <a href="/gallery">GALLERY</a>
-<a href="">ADD FUNDS</a>
+<% if !logged_in? %>
+<a href="/login">Log In</a>
+<a href="/sign_up">Sign Up</a>
+<% end %>
+<% if logged_in?%>
 <p class='balance'>Balance: $<%= %><a href="">Top Up!</a></p>
+<% end %>
 
 <% sale_images.each do |sale_image| %>
 <img src="<%=sale_image['image_url']%>" alt="">
