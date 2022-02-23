@@ -7,7 +7,7 @@ def create_gallery_images(name, image_url, artist, caption, price)
 end
 
 def get_gallery_images(id)
-    planets = run_sql("SELECT * FROM gallery WHERE id=$1", [id])[0]
+    planets = run_sql("SELECT * FROM gallery WHERE id=$1", [id])
 end
 
 def delete_gallery_images(id)
