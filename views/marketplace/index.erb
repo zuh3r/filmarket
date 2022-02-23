@@ -5,3 +5,11 @@
 
 <%# images %>
 <%# view | purchase   %>
+
+<% sale_images.each do |sale_image| %>
+<img src="<%=sale_image['image_url']%>" alt="">
+<h3><%=sale_image['name']%></h3>
+<p><%=sale_image['caption']%></p>
+<p>By: <%=sale_image['artist']%></p>
+<p><a href="">BUY NOW</a></p>
+<p>$<%=sale_image['price']%></p>
