@@ -2,7 +2,7 @@ get '/gallery' do
     id = params["id"]
 
     gallery_images = get_gallery_images(id)
-    erb :'gallery/gallery', locals: {
+    erb :'gallery/index', locals: {
         gallery_images: gallery_images,
         id: id
     }
