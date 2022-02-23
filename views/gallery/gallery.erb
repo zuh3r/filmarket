@@ -1,21 +1,20 @@
 <h1>FilMarket</h1>
-<a href="">MARKETPLACE</a>
-<a href="">GALLERY</a>
-<a href="">CART</a>
+<p><a href="/">MARKETPLACE</a></p>
+<p><a href="">GALLERY</a></p>
+<p>Balance: $<%= %><a href="">Top Up!</a></p>
 
 
-<%# if not logged in %>
 
-<h2>You must log in to view your gallery</h2>
-<a href="">LOG IN</a>
-<a href="">SIGN UP</a>
+<% gallery_images.each do |gallery_image| %>
+<img src="<%=gallery_image['image_url']%>" alt="">
+<h3><%=gallery_image['name']%></h3>
+<p><%=gallery_image['caption']%></p>
+<p>By: <%=gallery_image['artist']%></p>
+<p><a href="">BUY NOW</a></p>
+<p>$<%=gallery_image['price']%></p>
 
-<%# end %>
+<% end%>
 
-<%# if logged in %>
+<h3>Purchase more from the <a href="/marketplace">marketplace</a></h3>
 
-<%# images %>
-
-<h3>Purchase more from the <a href="">marketplace</a></h3>
-
-<%# end %>
+<h3><a href="/gallery/new">Add</a> your own art to your gallery!</h3>

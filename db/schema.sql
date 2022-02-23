@@ -19,7 +19,15 @@ CREATE TABLE gallery (
     price INTEGER
 );
 
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    email TEXT,
+    password_digest TEXT
+);
 
+heroku pg:push filmarket_db DATABASE_URL
 
 
 INSERT INTO marketplace(name, image_url, artist, caption, price) VALUES('New York', 'https://images.unsplash.com/photo-1514565131-fce0801e5785?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c2t5bGluZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', 'Zuher Feki', 'New York City skyline', 250);

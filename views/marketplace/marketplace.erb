@@ -1,10 +1,8 @@
 <h1>FilMarket</h1>
-<a href="">MARKETPLACE</a>
-<a href="">GALLERY</a>
-<a href="">CART</a>
-
-<%# images %>
-<%# view | purchase   %>
+<a href="/marketplace">MARKETPLACE</a>
+<a href="/gallery">GALLERY</a>
+<a href="">ADD FUNDS</a>
+<p class='balance'>Balance: $<%= %><a href="">Top Up!</a></p>
 
 <% sale_images.each do |sale_image| %>
 <img src="<%=sale_image['image_url']%>" alt="">

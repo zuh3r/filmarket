@@ -17,3 +17,7 @@ end
 def sell_gallery_images(id)
     run_sql("INSERT INTO marketplace(name, image_url, artist, caption, price) SELECT name, image_url, artist, caption, price FROM gallery WHERE id = $1; DELETE FROM gallery WHERE id = $1;", [id])
 end
+
+def update_gallery_images(id, name, caption, price)
+    run_sql("UPDATE gallery SET name = $2, caption = $3, price = $4 WHERE id = $1", [id, name, caption, price])
+end

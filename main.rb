@@ -11,6 +11,7 @@ require_relative 'models/marketplace'
 require_relative 'models/user'
 
 require_relative 'controllers/gallery_controllers'
+require_relative 'controllers/homepage_controllers'
 require_relative 'controllers/marketplace_controllers'
 require_relative 'controllers/sessions_controllers'
 require_relative 'controllers/user_controllers'
