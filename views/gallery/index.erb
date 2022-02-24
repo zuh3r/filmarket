@@ -1,30 +1,54 @@
-<h1>FilMarket</h1>
-<a href="/marketplace">MARKETPLACE</a>
-<a href="/gallery">GALLERY</a>
-<p class='balance'>Balance: $<%= %><a href="">Top Up!</a></p>
+<header>
+    <h1 class="filmarket">FILMARKET</h1>
+    <nav class="nav_bar">
+        <a href="/marketplace">MARKETPLACE</a>
+        <a href="/gallery">GALLERY</a><br>
+    </nav>
+
+    <% if logged_in?%>
+        <section class="user_details">
+            <p>Welcome <%= user_name %></p>
+
+            <p class='balance'>Balance: $<%=balance['balance']%></p>
+            <section class ="user_buttons">  
+                <a href="/balance"><button class="update_button">Update Balance</button></a>
+                <form action="/sessions" method = "POST">
+                    <input type="hidden" name="_method" value="delete">
+                    <button class="logout_button">Log Out</button>
+                </form>
+            </section>
+        </section>
+    <% end %>
+</header>
 
 <% if !logged_in? %>
-
-<h2>You must be logged in to view your gallery</h2>
-<h2><a href="">Log In</a></h2>
-<h2><a href="">Sign Up</a></h2>
-
+    <h1 class="login_message_gallery">You must be logged in to view your gallery</h1>
+    <h2 class="login_url_gallery"><a href="/login">Log In</a></h2>
+    <h2 class="signup_url_gallery"><a href="/sign_up">Sign Up</a></h2>
 <% end %>
 
-<% if logged_in %>
+<% if logged_in?  %>
+<section class="image_grid">
+    <% gallery_images.each do |gallery_image| %>
+        <div>
+            <img src="<%=gallery_image['image_url']%>" alt="">
+            <h3 class="image_title"><%=gallery_image['name']%></h3>
+            <div class="image_info">
+                <p><%=gallery_image['caption']%></p>
+                <p>By: <%=gallery_image['artist']%></p>
+            </div>
+            <form action="/sell/<%=gallery_image['id']%>" method = "POST">
+                <input type="hidden" name="_method" value="put">
 
-<% gallery_images.each do |gallery_image| %>
-<img src="<%=gallery_image['image_url']%>" alt="">
-<h3><%=gallery_image['name']%></h3>
-<p><%=gallery_image['caption']%></p>
-<p>By: <%=gallery_image['artist']%></p>
-<p><a href="">BUY NOW</a></p>
-<p>$<%=gallery_image['price']%></p>
-
-<% end%>
-
-<h3>Purchase more from the <a href="/marketplace">marketplace</a></h3>
-
-<h3><a href="/gallery/new">Add</a> your own art to your gallery!</h3>
-
+                <label for="">Price: </label>
+                <input type="integer" name="new_price" value="<%= gallery_image['price'] %>">
+                <p><button class="sell_button">SELL</button></p>
+            </form>
+        </div>
+    <% end%>
+</section>
+    <section class="footer">
+        <h3>Purchase more from the <a href="/marketplace">marketplace</a></h3>
+        <h3><a href="/gallery/new">Add</a> your own art to your gallery!</h3>
+    </section>
 <% end %>

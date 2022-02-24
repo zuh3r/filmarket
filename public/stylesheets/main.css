@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body img {
+    width: 80%;
+    max-width: 400px;
+}
+
+body {
+    background: url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJlaWdlJTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8&auto=format&fit=crop&w=900&q=60);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: rgb(58, 57, 57);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header {
+    color: rgb(58, 57, 57);
+    text-align: center;
+}
+
+.image_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.user_details {
+    margin: 40px auto 50px;
+    font-size: 1.5em;
+}
+
+header {
+    margin-top: 60px;
+}
+
+.filmarket {
+    font-size: 4em;
+    padding-bottom: 10px;
+}
+
+.nav_bar {
+    font-size: 1.5em;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+.user_buttons {
+    display:inline-flex;
+    padding-top: 10px;
+}
+
+.update_button, .logout_button {
+    height: 50px;
+    width: 90px;
+    border-radius: 25px;
+    margin: 10px 5px 0;
+}
+
+.withdraw_button, .deposit_button {
+    height: 30px;
+    width: 90px;
+    border-radius: 25px;
+    margin: 10px auto 20px;
+}
+
+.footer {
+    margin: 50px auto;
+}
+
+.image_info {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+.image_title{
+    font-size: 1.2em;
+    margin: 10px auto;
+}
+
+.buy_button {
+    height: 30px;
+    width: 60px;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+.sell_button {
+    height: 30px;
+    width: 60px;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+.login_prompt {
+    margin: 20px auto;
+    font-size: 1.2em;
+}
+
+.login_message_gallery {
+    margin: 90px auto 50px;
+}
+
+.login_url_gallery, .signup_url_gallery {
+    margin: 10px auto;
+}
+
+.signup_title {
+    margin: 40px auto 25px;
+}
+
+.signup_firstname, .signup_lastname, .signup_email, .signup_password {
+    margin: 10px auto;
+}
+
+.signup_button {
+    height: 30px;
+    width: 60px;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+.login_email {
+    margin-top: 60px;
+}
+
+.login_password {
+margin: 10px auto 10px;
+}
+
+.login_button {
+    height: 30px;
+    width: 60px;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+.browse_button {
+    height: 50px;
+    width: 100px;
+    border-radius: 25px;
+    margin-top: 50px;
+}
+
+.welcome_message {
+    width: 65%;
+    text-align: center;
+    margin: 50px auto 5px;
+}
+
+.balance_title {
+    margin: 30px auto 20px;
+
+}
+
+.deposit_details, .withdrawal_details {
+    margin: 15px auto 5px;
+}
+
+.new_art_name, .new_art_url, .new_art_artist, .new_art_caption, .new_art_price {
+    margin: 10px auto;
+}
+
+.add_art_title {
+    margin: 20px auto;
+}
+
+
+.add_art_button {
+    height: 45px;
+    width: 60px;
+    border-radius: 25px;
+    margin-top: 15px;
+}

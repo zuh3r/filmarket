@@ -13,10 +13,37 @@ def find_user_by_email(email)
     end
 end
 
-def find_user_by_id(id)
-    run_sql("SELECT * FROM users WHERE id = $1", [id])[0]
+def find_email_by_id(id)
+    email = run_sql("SELECT email FROM users WHERE id = $1", [id])
+    if email.to_a.count > 0
+        email[0]
+    else
+        nil
+    end
 end
 
-def update_balance
-    run_sql("UPDATE users SET balance = $1 WHERE id = $2", [balance, id])
+def find_user_by_id(id)
+    user = run_sql("SELECT * FROM users WHERE id = $1", [id])
+    if user.to_a.count > 0
+        user[0]
+    else
+        nil
+    end
+end
+
+def find_balance_by_id(id)
+    balance = run_sql("SELECT balance FROM users WHERE id = $1", [id])
+    if balance.to_a.count > 0
+        balance[0]
+    else
+        nil
+    end
+end
+
+def add_balance(balance, id)
+    run_sql("UPDATE users SET balance = balance + $1 WHERE id = $2", [balance, id])
+end
+
+def withdraw_balance(balance, id)
+    run_sql("UPDATE users SET balance = balance - $1 WHERE id = $2", [balance, id])
 end

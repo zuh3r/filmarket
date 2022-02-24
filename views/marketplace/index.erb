@@ -1,19 +1,54 @@
-<h1>FilMarket</h1>
-<a href="/marketplace">MARKETPLACE</a>
-<a href="/gallery">GALLERY</a>
-<% if !logged_in? %>
-<a href="/login">Log In</a>
-<a href="/sign_up">Sign Up</a>
-<% end %>
-<% if logged_in?%>
-<p class='balance'>Balance: $<%= %><a href="">Top Up!</a></p>
-<% end %>
+<header>
+    <h1 class="filmarket">FILMARKET</h1>
+    <nav class="nav_bar">
+        <a href="/marketplace">MARKETPLACE</a>
+        <a href="/gallery">GALLERY</a>
+    </nav>
+    
+    <% if !logged_in? %>
+    <div class="login_prompt">
+        <a href="/login">Log In</a>
+        <a href="/sign_up">Sign Up</a>
+    </div>
+    <% end %>
 
-<% sale_images.each do |sale_image| %>
-<img src="<%=sale_image['image_url']%>" alt="">
-<h3><%=sale_image['name']%></h3>
-<p><%=sale_image['caption']%></p>
-<p>By: <%=sale_image['artist']%></p>
-<p><a href="">BUY NOW</a></p>
-<p>$<%=sale_image['price']%></p>
-<% end%>
+    <% if logged_in?%>
+        <section class="user_details">
+            <p>Welcome <%= user_name %></p>
+
+            <p class='balance'>Balance: $<%=balance['balance']%></p>
+            <section class ="user_buttons">  
+                <a href="/balance"><button class="update_button">Update Balance</button></a>
+                <form action="/sessions" method = "POST">
+                    <input type="hidden" name="_method" value="delete">
+                    <button class = "logout_button">Log Out</button>
+                </form>
+            </section>
+        </section>
+    <% end %>
+</header>
+
+
+
+<section class = "image_grid">
+    <% sale_images.each do |sale_image| %>
+        <div>
+            <img src="<%=sale_image['image_url']%>" alt="">
+            <h3 class="image_title"><%=sale_image['name']%></h3>
+            <div class="image_info">
+                <p><%=sale_image['caption']%></p>
+                <p>By: <%=sale_image['artist']%></p>
+            </div>
+            <p>$<%=sale_image['price']%></p>
+
+            <% if logged_in? %>
+                
+                    <form action="/buy/<%=sale_image['id']%>" method = "POST">
+                    <input type="hidden" name="_method" value="put">
+                    <p><button class="buy_button">BUY</button></p>
+                    </form>
+
+            <% end %>
+        </div>
+    <% end %>
+</section>                

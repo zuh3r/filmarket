@@ -1,19 +1,35 @@
-<h1>Add Your Art!</h1>
+<header>
+    <h1 class="filmarket">FILMARKET</h1>
+    <nav class="nav_bar">
+        <a href="/marketplace">MARKETPLACE</a>
+        <a href="/gallery">GALLERY</a>
+    </nav>
+</header>
+
+<h1 class="add_art_title">Add Your Art!</h1>
 <form action="/new_art" method="POST">
-    <label for="">Name:</label>
-    <input type="text" name="name">
+    <div class="new_art_name">
+        <label for="">Name:</label>
+        <input type="text" name="name"><br>
+    </div>
+    <div class="new_art_url">
+        <label for="">Image URL:</label>
+        <input type="text" name="image_url"><br>
+    </div>
+    <div class="new_art_artist">
+        <label for="">Artist:</label>
+        <input type="text" name="artist"><br>
+    </div>
 
-    <label for="">Image URL:</label>
-    <input type="text" name="image_url">
+    <div class="new_art_caption">
+        <label for="">Caption:</label>
+        <input type="text" name="caption"><br>
+    </div>
 
-    <label for="">Artist:</label>
-    <input type="text" name="artist">
+    <div class="new_art_price">
+        <label for="">Price:</label>
+        <input type="text" name="price"><br>
+    </div>
 
-    <label for="">Caption:</label>
-    <input type="text" name="caption">
-
-    <label for="">Price:</label>
-    <input type="text" name="price">
-
-    <button>Add Now!</button>
+    <button class="add_art_button">Add Now!</button>
 </form>

@@ -2,14 +2,14 @@ def all_sale_images
     run_sql("SELECT * FROM marketplace")
 end
 
-def create_sale_images(name, image_url, artist, caption, price)
-    run_sql("INSERT INTO marketplace(name, image_url, artist, caption, price) VALUES($1, $2, $3, $4, $5)", [name, image_url, artist, caption, price])
+def purchase_sale_images(id, email, price)
+    run_sql("UPDATE marketplace SET email = (SELECT email FROM users WHERE email = $2) WHERE id = $1", [id, email])
+    run_sql("INSERT INTO gallery SELECT * FROM marketplace WHERE id =$1", [id])
+    run_sql("DELETE FROM marketplace WHERE id = $1", [id])
+    run_sql("UPDATE users SET balance = balance - $1 WHERE email = $2", [price, email])
 end
 
-def get_sale_images(id)
-    planets = run_sql("SELECT * FROM marketplace WHERE id=$1", [id])[0]
+def marketplace_image_price(id)
+    run_sql("SELECT price FROM marketplace WHERE id = $1", [id])[0]
 end
 
-def purchase_sale_images(id)
-    run_sql("INSERT INTO gallery(name, image_url, artist, caption, price) SELECT name, image_url, artist, caption, price FROM marketplace WHERE id = $1; DELETE FROM marketplace WHERE id = $1;", [id])
-end

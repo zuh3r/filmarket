@@ -11,11 +11,13 @@ post '/sessions' do
     if user && BCrypt::Password.new(user['password_digest']) == params['password']
         session['user_id'] = user['id']
         redirect '/marketplace'
+    else
+        # wrong pw = true -> run if statement in erb to show error message
+        redirect '/login'
     end
 end
 
 delete '/sessions' do
     session['user_id'] = nil
-
     redirect '/marketplace'
 end

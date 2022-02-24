@@ -1,0 +1,27 @@
+<header>
+    <h1 class="filmarket">FILMARKET</h1>
+    <nav class="nav_bar">
+        <a href="/marketplace">MARKETPLACE</a>
+        <a href="/gallery">GALLERY</a>
+    </nav>
+</header>
+<h3 class="balance_title">Current Balance: $<%=balance['balance']%></h3>
+
+<form action="/balance/deposit" method = "POST">
+ <input type="hidden" name="_method" value="put">
+    <div class="deposit_details">
+        <label for="">Deposit Amount: $</label>
+        <input type="integer" name="add_balance" value=0>    
+    </div>
+    <p><button class="deposit_button">DEPOSIT</button></p>
+</form>
+
+<form action="/balance/withdraw" method = "POST">
+ <input type="hidden" name="_method" value="put">
+
+    <div class="withdrawal_details">
+        <label for="">Withdrawal Amount: $</label>
+        <input type="integer" name="withdraw_balance" value=0>    
+    </div>
+    <p><button class="withdraw_button">WITHDRAW</button></p>
+</form>
